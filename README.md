@@ -10,5 +10,6 @@ Quick start:
 pip install tinybird-cli
 tb auth
 tb push
+tb append log_landing access.log.csv
 ```
 
