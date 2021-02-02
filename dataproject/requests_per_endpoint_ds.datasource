@@ -1,0 +1,8 @@
+SCHEMA >
+    ip UInt32,
+    request_count AggregateFunction(count),
+    avg_bytes AggregateFunction(avg, UInt32)
+
+ENGINE AggregatingMergeTree
+ENGINE_SORTING_KEY ip
+

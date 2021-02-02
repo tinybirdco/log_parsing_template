@@ -1,0 +1,15 @@
+
+NODE extract_column_data
+
+SQL >
+    select
+        IPv4StringToNum(column_00) as ip,
+        parseDateTimeBestEffort(replaceOne(substring(column_03, 2), ':', ' ')) as time,
+        splitByChar(' ', column_05) as tt,
+        tt[1] as method,
+        tt[2] as path,
+        tt[3] as protocol,
+        column_06 as status_code,
+        column_07 as bytes,
+        column_09 as user_agent
+    from log_landing

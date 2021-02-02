@@ -1,0 +1,13 @@
+
+NODE matview
+SQL >
+    SELECT
+        ip,
+        countState() AS request_count,
+        avgState(toUInt32(bytes)) as avg_bytes
+    FROM log_transform
+    GROUP BY ip
+
+TYPE materialized
+DATASOURCE requests_per_endpoint_ds
+

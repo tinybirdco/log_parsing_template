@@ -1,0 +1,17 @@
+NODE grouping
+SQL >
+    %
+    SELECT
+        ip,
+        countMerge(request_count) AS request_count,
+        avgMerge(avg_bytes) as avg_bytes
+    FROM requests_per_endpoint_ds
+    GROUP BY ip
+    ORDER BY request_count DESC
+    LIMIT {{Int32(count, 10)}}
+
+NODE endpoint
+SQL >
+    select IPv4NumToString(ip) as ip_address,
+           request_count
+    from grouping

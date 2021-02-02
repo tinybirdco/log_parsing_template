@@ -1,0 +1,14 @@
+
+SCHEMA >
+    `column_00` String,
+    `column_01` String,
+    `column_02` String,
+    `column_03` String,
+    `column_04` String,
+    `column_05` String,
+    `column_06` UInt16,
+    `column_07` Int32,
+    `column_08` String,
+    `column_09` String
+
+ENGINE "MergeTree"

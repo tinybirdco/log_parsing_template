@@ -1,0 +1,24 @@
+
+
+NODE grouping
+SQL >
+    %
+    SELECT
+        ip,
+        count() AS request_count,
+        avg(bytes) as avg_bytes
+
+    FROM log_transform
+
+    GROUP BY ip
+    ORDER BY request_count DESC
+    LIMIT {{Int32(count, 10)}}
+
+NODE endpoint
+SQL >
+
+    select IPv4NumToString(ip) as ip_address,
+           avg_bytes,
+           request_count
+    from grouping
+
