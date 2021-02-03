@@ -8,10 +8,8 @@ Quick start:
 
 ```
 pip install tinybird-cli
-cd dataproject
 tb auth
 tb push
-cd ..
 tb datasource append log_landing access.log.csv
 ```
 
